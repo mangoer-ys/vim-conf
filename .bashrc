@@ -1,0 +1,1 @@
+alias vj='vim '\''+call VjOpen()'\'''
