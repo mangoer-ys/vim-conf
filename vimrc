@@ -1,5 +1,5 @@
 "  ---------------------------------------------
-source /Users/yangshuai07/tools/vimide/.vimrc
+source /usr/local/vimide/vimide/.vimrc
 "  欢迎使用VJ，该环境已经集成了团建常用的开发配置、快捷键映射和插件。
 "  若需要自定义VJ，可参考以下简要说明。
 "
@@ -34,7 +34,6 @@ source /Users/yangshuai07/tools/vimide/.vimrc
 
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
 colorscheme solarized
 
 "进行版权声明的设置
