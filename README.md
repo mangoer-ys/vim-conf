@@ -4,9 +4,9 @@
 
 ### 效果图
 
-![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-1.png)
+![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-2.png)
 
-shell中使用*vj*命令即可以上图样式打开文件夹。
+shell中使用 *vj* 命令即可以上图样式打开文件夹。
 
 ### 快捷键
 
@@ -31,12 +31,12 @@ shell中使用*vj*命令即可以上图样式打开文件夹。
 | ctrl + wj | 向上切换分屏 |
 | ctrl + wk | 向下切换分屏 |
 | :set paste | 进入粘贴模式，不会自动缩进 |
-| F10 | 打开或关闭目录树 |
-| F9 ctrl + ] | 函数跳转 |
-| F8 | 执行当前目录下_prj/init.sh自定义脚本 |
-| F5 | 刷新目录树 |
 | F4 | 文件头部加作者时间等注释 |
-
+| F5 | 刷新目录树 |
+| F7 | 窗口右侧显示文件结构 方法变量等 |
+| F8 | 执行当前目录下 _prj/init.sh 自定义脚本 |
+| F9 ctrl + ] | 函数跳转 |
+| F10 | 打开或关闭左侧目录树 |
 
 #### 目录树操作
 光标停留在目录树上，输入`o`即可对改目录进行操作：
