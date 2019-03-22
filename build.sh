@@ -1,32 +1,59 @@
 #! /bin/bash
 
-VIMIDE=/usr/local/vimide/
-VIMRC=~/.vimrc
-VIM=~/.vim
+function backup() {
+    d=`date +%Y%m%d`
+    timestamp=`data +%s`
 
-if [ ! -d $VIMIDE ]
-then
-    sudo mkdir -p $VIMIDE
-    echo "Create Vimide Dir"
-else
-    sudo rm -rf $VIMIDE/*
-    echo "Rm Content of Vimide Dir"
-fi
+    t="$d-$timestamp"
 
-if [ -d $VIM ]
-then
-    rm -rf $VIM
-fi
+    if [ -f ~/.vimrc ]
+    then
+        mv ~/.vimrc ~/.vimrc_backup_$t
+    fi
 
-tar -zxf vim.tar.gz -C ~/
-sudo tar -zxf vimide.tar.gz -C $VIMIDE
+    if [ -f ~/.vimrc.local ]
+    then
+        mv ~/.vimrc.local ~/.vimrc.local_backup_$t
+    fi
 
-echo "UnZip Successfully"
+    if [ -f ~/.vimrc.bundle ]
+    then
+        mv ~/.vimrc.bundle ~/.vimrc.bundle_backup_$t
+    fi
 
-cp vimrc $VIMRC
-echo "Cp VimRC"
+    if [ -d ~/.vim ]
+    then
+        mv ~/.vim ~/.vim_backup_$t
+    fi
+}
 
-cat vj.txt >> ~/.bash_profile
-echo "Add Alias"
+function copyVimDir() {
+    tar zxf vim.tar.gz
 
-source ~/.bash_profile
+    cp ./.vim ~/ -r
+    cp ./.vimrc ~/
+    cp ./.vimrc.local ./
+    cp ./.vimrc.team ./
+    cp ./.vimrc.bundle ./
+}
+
+function addAlias() {
+    shell=`echo $SHELL`
+
+    if [ $shell = "/bin/zsh" ]
+    then
+        cat alias.txt >> ~/.zshrc
+        source ~/.zshrc
+    fi
+}
+
+echo "=============== start backup =================="
+backup
+echo "==============================================="
+echo "===============  start copy  =================="
+copyVimDir
+echo "==============================================="
+echo "===============   add alias  =================="
+addAlias
+echo "==============================================="
+
