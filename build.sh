@@ -2,7 +2,7 @@
 
 function backup() {
     d=`date +%Y%m%d`
-    timestamp=`data +%s`
+    timestamp=`date +%s`
 
     t="$d-$timestamp"
 
@@ -30,11 +30,11 @@ function backup() {
 function copyVimDir() {
     tar zxf vim.tar.gz
 
-    cp ./.vim ~/ -r
+    cp -r ./.vim ~/
     cp ./.vimrc ~/
-    cp ./.vimrc.local ./
-    cp ./.vimrc.team ./
-    cp ./.vimrc.bundle ./
+    cp ./.vimrc.local ~/
+    cp ./.vimrc.team ~/
+    cp ./.vimrc.bundles ~/
 }
 
 function addAlias() {
