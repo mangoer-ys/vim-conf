@@ -5,8 +5,14 @@
 ### 效果图
 
 ![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-2.png)
+![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-3.png)
 
 shell中使用 *vj* 命令即可以上图样式打开文件夹。
+
+### 安装
+
+    1. git clone https://github.com/mangoer-ys/vim-conf.git
+    2. cd vim-conf; sh build.sh
 
 ### 快捷键
 
