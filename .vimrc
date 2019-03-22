@@ -33,9 +33,10 @@ source ~/.vimrc.team
 "  ---------------------------------------------
 
 " airline
+let g:airline_powerline_fonts = 1
 let g:airline_section_b = '%{strftime("%c")}'
-" let g:airline_statusline_ontop = 1
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline_statusline_ontop = 1
 
 nnoremap <C-e> :bnext<CR>
 

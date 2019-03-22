@@ -7,6 +7,7 @@ let bundle_dir=expand('~/.vim/bundle/')
 " endif
 
 " tab & status line
+Bundle 'powerline/fonts',                     {'bundle_dir': bundle_dir}
 Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
 Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
 
@@ -19,6 +20,7 @@ Bundle 'jistr/vim-nerdtree-tabs',             {'bundle_dir': bundle_dir}
 Bundle 'tomtom/tcomment_vim',                 {'bundle_dir': bundle_dir}
 Bundle 'DoxygenToolkit.vim',                  {'bundle_dir': bundle_dir}
 Bundle 'L9',                                  {'bundle_dir': bundle_dir}
+Bundle 'vim-syntastic/syntastic',             {'bundle_dir': bundle_dir}
 
 Bundle 'majutsushi/tagbar',                   {'bundle_dir': bundle_dir}
 
