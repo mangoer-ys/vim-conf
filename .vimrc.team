@@ -4,7 +4,7 @@ syntax enable
 filetype on
 filetype off
 
-set rtp+=~/.vim/team_bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/Vundle.vim/
 
 call vundle#rc()
 
@@ -55,7 +55,7 @@ endif
 " autocmd FileType html,css,javascript setlocal shiftwidth=2 | set foldmethod=indent
 autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,*_ngx.conf set filetype=nginx | syntax on
 
-let editorconfig=expand('~/.vim/team_bundle/.editorconfig')
+let editorconfig=expand('~/.vim/bundle/.editorconfig')
 if filereadable(editorconfig)
     let g:editorconfig_Beautifier=editorconfig
 endif

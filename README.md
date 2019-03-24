@@ -1,26 +1,44 @@
 ## Mangoer's Vim IDE
 
 这套Vim IDE集成了众多方便的功能，使用Vundle管理插件。
+主要包含以下功能：
+    
+    状态栏
+    Tab栏
+    Tagbar
+    目录树
+    快速注释
+    文件查找，函数查找 
+    语法检测，错误提示
+    代码折叠
+    代码格式化
+    <F8>一键编译
+    ...
+
 
 ### 效果图
 
 ![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-2.png)
 ![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-3.png)
 
-shell中使用 *vj* 命令即可以上图样式打开文件夹。
+### 依赖
+
+Vim 7.0+
 
 ### 安装
 
     1. git clone https://github.com/mangoer-ys/vim-conf.git
     2. cd vim-conf; sh build.sh
 
-### 快捷键
+然后在shell中使用 *vj* 命令即可以上图样式打开当前所在文件夹。
 
+### 快捷键
 
 |快捷键|说明|
 |-|-|
 | ctrl + p | 查找文件 |
-| ctrl + e | 多tab切换 |
+| ctrl + e | 多tab向右切换 |
+| ctrl + r | 多tab向左切换 |
 | \dc | 自动为函数增加注释 |
 | \c | 增加注释 /* */ |
 | \x | 增加或取消注释 |
@@ -36,7 +54,7 @@ shell中使用 *vj* 命令即可以上图样式打开文件夹。
 | ctrl + wh | 向左切换分屏 |
 | ctrl + wj | 向上切换分屏 |
 | ctrl + wk | 向下切换分屏 |
-| :set paste | 进入粘贴模式，不会自动缩进 |
+| ctrl + wo | 最大化当前分屏 |
 | F4 | 文件头部加作者时间等注释 |
 | F5 | 刷新目录树 |
 | F7 | 窗口右侧显示文件结构 方法变量等 |
@@ -45,6 +63,7 @@ shell中使用 *vj* 命令即可以上图样式打开文件夹。
 | F10 | 打开或关闭左侧目录树 |
 
 #### 目录树操作
+
 光标停留在目录树上，输入`o`即可对改目录进行操作：
 
 | 快捷键 | 说明 |
@@ -53,3 +72,6 @@ shell中使用 *vj* 命令即可以上图样式打开文件夹。
 | m | 移动 |
 | c | 复制 |
 | d | 删除 |
+
+### Q&A
+

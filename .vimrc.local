@@ -1,8 +1,18 @@
 nnoremap [m  <Esc> : tabprevious<CR>
 nnoremap ]m  <Esc> : tabnext<CR>
 
+" new tab
 nnoremap <C-t>      : tabnew<CR>
 inoremap <C-t><Esc> : tabnew<CR>
+
+" tab switch
+nnoremap <C-e> :bnext<CR>
+nnoremap <C-r> :bpre<CR>
+
+" windows maximize
+nnoremap <C-W>O     :call VjMaximizeToggle()<CR>
+nnoremap <C-W>o     :call VjMaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
 
 
 " 临时映射 <F5>
@@ -25,6 +35,8 @@ inoremap <C-t><Esc> : tabnew<CR>
 " <F7>   <Esc>: call Pylon_prj_cmd("build_index.sh") <CR>
 " <F8>   <Esc>: call Pylon_prj_cmd(g:pylon_prj_init) <CR>
 " <F9>   <Esc>: call Pylon_build_index() <CR>
+
+nmap <F3> <Esc>:CtrlP<CR>
 
 nnoremap <F5>          : VJNERDTreeRefresh<CR>
 nnoremap <silent><F7>  : TagbarToggle<CR>
@@ -56,8 +68,6 @@ let g:ctrlp_custom_ignore = {
 "智能大小写
 set ignorecase
 set smartcase
-
-nmap <F3> <Esc>:CtrlP<CR>
 
 " DoxygenToolkit.vim
 " 生成Doxygen风格的文档注释
@@ -94,12 +104,10 @@ let g:vj_nerdtree_compatible = 1
 " --- 若使用Vim打开某个文件，则自动打开NERDTree的同时，将焦点也转移至新文件中
 " autocmd VimEnter * if argc() | wincmd p | endif
 
-" tagbar右侧结构树<F12>
+" tagbar右侧结构树<F7>
 " tagbar-phpctags
 let g:tagbar_indent = 1
 let g:tagbar_autofocus = 1
-" -- 用「相对行数」+ [j/k] 或「绝对行数」+ G 快速移动
-" 相对行数2，绝对行数值为1。
 let g:tagbar_show_linenumbers = 1
 let g:tagbar_zoomwidth = 1
 " let g:tagbar_autopreview = 1
@@ -108,15 +116,32 @@ let g:tagbar_phpctags_memory_limit = '512M'
 let g:tagbar_width = 30
 
 let g:tagbar_type_go = {
-    \ 'ctagstype': 'go',
-    \ 'kinds' : [
-        \'p:package',
-        \'f:function',
-        \'v:variables',
-        \'t:type',
-        \'c:const'
-    \]
-    \}
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags' }
 
@@ -176,7 +201,6 @@ let g:phpqa_messdetector_autorun = 0
 
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
-
 vnoremap <Leader>: :EasyAlign:s0l1<CR>
 
 " vim-jsbeautify
@@ -219,7 +243,21 @@ set completeopt-=preview
 let g:agprg="ag --skip-vcs-ignores  --smart-case --ignore-dir={_prj,node_modules,tmp}  --column"
 
 
-nnoremap <C-W>O     :call VjMaximizeToggle()<CR>
-nnoremap <C-W>o     :call VjMaximizeToggle()<CR>
-nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_b = '%{strftime("%c")}'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go']
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_c_checkers = ['gcc']
 

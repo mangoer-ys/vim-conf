@@ -5,23 +5,31 @@ let bundle_dir=expand('~/.vim/bundle/')
 " if !exists(bundle_dir)
 "   exec "!mkdir -pv " . bundle_dir
 " endif
+"
+" Vundle
+Bundle 'leiming/Vundle.vim',                  {'bundle_dir': bundle_dir}
+
+" base libary
+Bundle 'bufexplorer.zip',                     {'bundle_dir': bundle_dir}
+Bundle 'DoxygenToolkit.vim',                  {'bundle_dir': bundle_dir}
+Bundle 'L9',                                  {'bundle_dir': bundle_dir}
+
 
 " tab & status line
 Bundle 'powerline/fonts',                     {'bundle_dir': bundle_dir}
 Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
 Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
 
-Bundle 'leiming/Vundle.vim',                  {'bundle_dir': bundle_dir}
-Bundle 'bufexplorer.zip',                     {'bundle_dir': bundle_dir}
-Bundle 'editorconfig/editorconfig-vim',       {'bundle_dir': bundle_dir}
-Bundle 'kien/ctrlp.vim',                      {'bundle_dir': bundle_dir}
+" nerdtree
 Bundle 'leiming/nerdtree',                    {'bundle_dir': bundle_dir}
 Bundle 'jistr/vim-nerdtree-tabs',             {'bundle_dir': bundle_dir}
+
+Bundle 'editorconfig/editorconfig-vim',       {'bundle_dir': bundle_dir}
+Bundle 'kien/ctrlp.vim',                      {'bundle_dir': bundle_dir}
 Bundle 'tomtom/tcomment_vim',                 {'bundle_dir': bundle_dir}
-Bundle 'DoxygenToolkit.vim',                  {'bundle_dir': bundle_dir}
-Bundle 'L9',                                  {'bundle_dir': bundle_dir}
 Bundle 'vim-syntastic/syntastic',             {'bundle_dir': bundle_dir}
 
+" tagbar
 Bundle 'majutsushi/tagbar',                   {'bundle_dir': bundle_dir}
 
 " todo: ctags patch 后可以不装?
@@ -53,7 +61,6 @@ Bundle "tpope/vim-unimpaired",                {'bundle_dir': bundle_dir}
 " QA/debug
 " Bundle "joonty/vim-phpqa",                  {'bundle_dir': bundle_dir}
 " Bundle "joonty/vim-phpunitqf",              {'bundle_dir': bundle_dir}
-" Bundle "scrooloose/syntastic",              {'bundle_dir': bundle_dir}
 " Bundle "joonty/vdebug",                     {'bundle_dir': bundle_dir}
 
 " Align
@@ -76,7 +83,7 @@ Bundle "othree/html5.vim",                    {'bundle_dir': bundle_dir}
 Plugin 'maksimr/vim-jsbeautify',              {'bundle_dir': bundle_dir}
 " Bundle 'brookhong/cscope.vim',                {'bundle_dir': bundle_dir}
 
-Bundle 'https://gameteam360@bitbucket.org/gameteam360/pylon_ide.git', {'bundle_dir': bundle_dir}
+Bundle 'mangoer-ys/pylon_ide',                {'bundle_dir': bundle_dir}
 " Bundle '2072/PHP-Indenting-for-VIm',        {'bundle_dir': bundle_dir}
 " Bundle 'lpenz/vimcommander'
 

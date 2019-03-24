@@ -32,60 +32,22 @@ source ~/.vimrc.team
 "  以上内容请勿修改，以免更新时丢失。使用中如有任何问题可随时联系管理员，谢谢配合。
 "  ---------------------------------------------
 
-" airline
-let g:airline_powerline_fonts = 1
-let g:airline_section_b = '%{strftime("%c")}'
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_statusline_ontop = 1
-
-" golang tag
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-
-nnoremap <C-e> :bnext<CR>
-
 syntax enable
 set background=dark
-" set background=light
 colorscheme solarized
 
 " set showtabline=0
 set cmdheight=2
 
-set mouse=a
+" set mouse=a
 set tabstop=4
-
 
 set pastetoggle=<F11>
 
-"进行版权声明的设置
-"添加或更新头
-map <F4> :call TitleDet()<cr>'s
+" 进行版权声明的设置
+" 添加或更新头
+map <F4> :call TitleDet()<CR>
+
 function AddTitle()
     call append(1,"/*")
     call append(2,"// ================================================================")
@@ -105,7 +67,7 @@ function AddTitle()
     echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endfunction
 
-"更新最近修改时间和文件名
+" 更新最近修改时间和文件名
 function UpdateTitle()
     normal m'
     execute '/# Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
@@ -117,9 +79,9 @@ function UpdateTitle()
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
 endfunction
 
-"判断前10行代码里面，是否有Last modified这个单词，
-"如果没有的话，代表没有添加过作者信息，需要新添加；
-"如果有的话，那么只需要更新即可
+" 判断前10行代码里面，是否有Last modified这个单词，
+" 如果没有的话，代表没有添加过作者信息，需要新添加；
+" 如果有的话，那么只需要更新即可
 function TitleDet()
      let n=1
      while n < 10
