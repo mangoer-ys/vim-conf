@@ -16,9 +16,14 @@ function backup() {
         mv ~/.vimrc.local ~/.vimrc.local_backup_$t
     fi
 
-    if [ -f ~/.vimrc.bundle ]
+    if [ -f ~/.vimrc.bundles ]
     then
-        mv ~/.vimrc.bundle ~/.vimrc.bundle_backup_$t
+        mv ~/.vimrc.bundles ~/.vimrc.bundles_backup_$t
+    fi
+
+    if [ -f ~/.vimrc.team ]
+    then
+        mv ~/.vimrc.team ~/.vimrc.team_backup_$t
     fi
 
     if [ -d ~/.vim ]
