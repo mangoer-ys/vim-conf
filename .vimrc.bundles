@@ -73,6 +73,7 @@ Bundle 'rayburgemeestre/phpfolding.vim',      {'bundle_dir': bundle_dir}
 " Bundle 'rmanalan/jshint.vim',                 {'bundle_dir': bundle_dir}
 " Bundle 'pangloss/vim-javascript',             {'bundle_dir': bundle_dir}
 Bundle 'Blackrush/vim-gocode',                {'bundle_dir': bundle_dir}
+Bundle 'fatih/vim-go',                        {'bundle_dir': bundle_dir}
 Bundle "mattn/emmet-vim",                     {'bundle_dir': bundle_dir}
 
 " Other

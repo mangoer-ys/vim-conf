@@ -50,6 +50,12 @@ function addAlias() {
         cat alias.txt >> ~/.zshrc
         source ~/.zshrc
     fi
+
+    if [ $shell = "/bin/bash" ]
+    then
+        cat alias.txt >> ~/.bashrc
+        source ~/.bashrc
+    fi
 }
 
 function clean() {
