@@ -24,7 +24,15 @@
 
 ### 依赖
 
-Vim 7.2+
+    Vim 7.2+
+
+    字体
+    github.com/powerline/fonts
+    
+    Golang 
+    代码跳转 godef  github.com/rogpeppe/godef
+    代码补全 gocode github.com/mdempsky/gocode
+
 
 ### 安装
 

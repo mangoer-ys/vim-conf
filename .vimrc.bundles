@@ -16,9 +16,9 @@ Bundle 'L9',                                  {'bundle_dir': bundle_dir}
 
 
 " tab & status line
-Bundle 'powerline/fonts',                     {'bundle_dir': bundle_dir}
+" Bundle 'powerline/fonts',                     {'bundle_dir': bundle_dir}
 Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
-Bundle 'vim-airline/vim-airline',             {'bundle_dir': bundle_dir}
+Bundle 'vim-airline/vim-airline-themes',      {'bundle_dir': bundle_dir}
 
 " nerdtree
 Bundle 'leiming/nerdtree',                    {'bundle_dir': bundle_dir}
@@ -72,8 +72,11 @@ Bundle 'rayburgemeestre/phpfolding.vim',      {'bundle_dir': bundle_dir}
 " Front End Bundle
 " Bundle 'rmanalan/jshint.vim',                 {'bundle_dir': bundle_dir}
 " Bundle 'pangloss/vim-javascript',             {'bundle_dir': bundle_dir}
+
+" golang
 Bundle 'Blackrush/vim-gocode',                {'bundle_dir': bundle_dir}
 Bundle 'fatih/vim-go',                        {'bundle_dir': bundle_dir}
+
 Bundle "mattn/emmet-vim",                     {'bundle_dir': bundle_dir}
 
 " Other
