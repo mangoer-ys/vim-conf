@@ -40,7 +40,6 @@ colorscheme solarized
 set cmdheight=2
 
 " set mouse=a
-set tabstop=4
 
 set pastetoggle=<F11>
 
@@ -70,10 +69,10 @@ endfunction
 " 更新最近修改时间和文件名
 function UpdateTitle()
     normal m'
-    execute '/# Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    execute '/\/\/ Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
     normal ''
     normal mk
-    execute '/# Filename:      /s@:.*$@\=":\t\t".expand("%:t")@'
+    execute '/\/\/ Filename:      /s@:.*$@\=":\t\t".expand("%:t")@'
     execute "noh"
     normal 'k
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None

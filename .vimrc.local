@@ -164,14 +164,14 @@ let g:prj = getcwd()
 
 func! UpdatePrjTags()
     " 将 _prj/ 下 tags 结尾的文件
-    let a:tag_list=split(globpath(g:prj."/_prj/", '*tags'), "\n")
+    let tag_list=split(globpath(g:prj."/_prj/", '*tags'), "\n")
     set tags=
     let i=0
 
-    while i<len(a:tag_list)
-        if filereadable(a:tag_list[i])
+    while i<len(tag_list)
+        if filereadable(tag_list[i])
             " echo a:tag_list[i]
-            execute "set tags+=".a:tag_list[i]
+            execute "set tags+=".tag_list[i]
         endif
         let i+=1
     endwhile
@@ -215,6 +215,9 @@ autocmd FileType css vnoremap <buffer> <Leader>ff        : call RangeCSSBeautify
 
 " 切换php/html/javascript文件类型以配合缩进和语法补全
 autocmd FileType html,php,javascript map <buffer> <Leader>ft :call VjFileTypeToggle()<CR>
+
+" golang
+autocmd FileType go nnoremap <buffer> <C-]> :GoDef <CR>
 
 " EasyMotion
 " 快速移动
@@ -263,4 +266,4 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_c_checkers = ['gcc']
 
 " vim-go
-let g:go_version_warning = 0
+" let g:go_version_warning = 0
