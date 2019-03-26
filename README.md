@@ -24,7 +24,7 @@
 
 ### 依赖
 
-    Vim 7.2+
+    Vim 8.0+
 
     字体
     github.com/powerline/fonts

@@ -85,14 +85,29 @@ noremap  <Leader>c :TCommentBlock<cr>
 xnoremap <Leader>c :TCommentBlock<cr>
 
 " NERDTree<F10>
-" 左侧文件菜单插件
-
-" Scroll from source
 noremap <Leader>sf <Esc>:NERDTreeFind<CR>
 " NerdTree没有箭头
 let g:NERDTreeDirArrows = 0
 " 隐藏帮助说明和书签
 let NERDTreeMinimalUI = 1
+" let NERDTreeMinimalMenu=1
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore=['\~$','\.swp']
+
+" nerdtree-git-plugin
+let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 " 默认是否用 l 代替 o 打开文件
 let g:vj_nerdtree_compatible = 1
@@ -266,4 +281,4 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_c_checkers = ['gcc']
 
 " vim-go
-" let g:go_version_warning = 0
+let g:go_version_warning = 0
