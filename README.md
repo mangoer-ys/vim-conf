@@ -30,8 +30,10 @@
     github.com/powerline/fonts
     
     Golang 
-    代码跳转 godef  github.com/rogpeppe/godef
-    代码补全 gocode github.com/mdempsky/gocode
+    代码跳转 godef  
+    go get -u github.com/rogpeppe/godef
+    代码补全 gocode 
+    go get -u github.com/mdempsky/gocode
 
 
 ### 安装
@@ -75,7 +77,7 @@
 
 #### 目录树操作
 
-光标停留在目录树上，输入`o`即可对改目录进行操作：
+光标停留在目录树上，输入`m` 即可对改目录进行操作 ：
 
 | 快捷键 | 说明 |
 |-|-|
