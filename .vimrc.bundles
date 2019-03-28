@@ -95,10 +95,10 @@ Plugin 'tpope/vim-vividchalk',              {'bundle_dir': bundle_dir}
 Plugin 'Lokaltog/vim-distinguished',        {'bundle_dir': bundle_dir}
 Plugin 'morhetz/gruvbox',                   {'bundle_dir': bundle_dir}
 Plugin 'tomasr/molokai',                    {'bundle_dir': bundle_dir}
-Plugin 'mhinz/vim-janah',                   {'bundle_dir': bundle_dir}
-Plugin 'nanotech/jellybeans.vim',           {'bundle_dir': bundle_dir}
-Plugin 'jonathanfilip/vim-lucius',          {'bundle_dir': bundle_dir}
-Plugin 'mhartington/oceanic-next',          {'bundle_dir': bundle_dir}
-Plugin 'romainl/flattened',                 {'bundle_dir': bundle_dir}
-Plugin 'junegunn/seoul256.vim',             {'bundle_dir': bundle_dir}
-Plugin 'KabbAmine/yowish.vim',              {'bundle_dir': bundle_dir}
+" Plugin 'mhinz/vim-janah',                   {'bundle_dir': bundle_dir}
+" Plugin 'nanotech/jellybeans.vim',           {'bundle_dir': bundle_dir}
+" Plugin 'jonathanfilip/vim-lucius',          {'bundle_dir': bundle_dir}
+" Plugin 'mhartington/oceanic-next',          {'bundle_dir': bundle_dir}
+" Plugin 'romainl/flattened',                 {'bundle_dir': bundle_dir}
+" Plugin 'junegunn/seoul256.vim',             {'bundle_dir': bundle_dir}
+" Plugin 'KabbAmine/yowish.vim',              {'bundle_dir': bundle_dir}

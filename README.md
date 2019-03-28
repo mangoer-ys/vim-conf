@@ -28,9 +28,6 @@
     ftp://ftp.vim.org/pub/vim/unix/ 
     or https://github.com/vim/vim/archive/master.zip
 
-    [必须]Vundle
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
     [必须]字体
     github.com/powerline/fonts
     
@@ -74,6 +71,7 @@
 | zm | 全部关闭代码折叠 |
 | zn | 全部展开代码折叠 |
 | zc | 展开一级代码折叠 |
+| F3 | 查找文件 |
 | F4 | 文件头部加作者时间等注释 |
 | F5 | 刷新目录树 |
 | F7 | 窗口右侧显示文件结构 方法变量等 |

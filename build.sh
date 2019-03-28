@@ -33,6 +33,14 @@ function backup() {
 }
 
 function install_plugin() {
+    cp .vimrc ~/.vimrc
+    cp .vimrc.local ~/.vimrc.local
+    cp .vimrc.team ~/.vimrc.team
+    cp .vimrc.bundles ~/.vimrc.bundles
+
+    mkdir -p ~/.vim/bundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
     vim +PluginInstall +qall
 }
 
