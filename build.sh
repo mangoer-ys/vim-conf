@@ -32,17 +32,11 @@ function backup() {
     fi
 }
 
-function copyVimDir() {
-    tar zxf vim.tar.gz
-
-    cp -r ./.vim ~/
-    cp ./.vimrc ~/
-    cp ./.vimrc.local ~/
-    cp ./.vimrc.team ~/
-    cp ./.vimrc.bundles ~/
+function install_plugin() {
+    vim +PluginInstall +qall
 }
 
-function addAlias() {
+function add_alias() {
     shell=`echo $SHELL`
 
     if [ $shell = "/bin/zsh" ]
@@ -65,11 +59,11 @@ function clean() {
 echo "=============== start backup =================="
 backup
 echo "==============================================="
-echo "===============  start copy  =================="
-copyVimDir
+echo "===========  install vim plugin  =============="
+install_plugin
 echo "==============================================="
 echo "===============   add alias  =================="
-addAlias
+add_alias
 clean
 echo "==============================================="
 echo "=============== enjoy vim ide ================="

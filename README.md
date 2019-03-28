@@ -24,9 +24,14 @@
 
 ### 依赖
 
-    Vim 8.0+
+    [必须]Vim 8.0+
+    ftp://ftp.vim.org/pub/vim/unix/ 
+    or https://github.com/vim/vim/archive/master.zip
 
-    字体
+    [必须]Vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    [必须]字体
     github.com/powerline/fonts
     
     Golang 
@@ -35,6 +40,7 @@
     代码补全 gocode 
     go get -u github.com/mdempsky/gocode
 
+    Ack
 
 ### 安装
 
@@ -71,20 +77,17 @@
 | F4 | 文件头部加作者时间等注释 |
 | F5 | 刷新目录树 |
 | F7 | 窗口右侧显示文件结构 方法变量等 |
-| F8 | 执行当前目录下 _prj/init.sh 自定义脚本 |
+| F8 | 执行当前目录下 `_prj/init.sh` 自定义脚本 |
 | F9 ctrl + ] | 函数跳转 |
 | F10 | 打开或关闭左侧目录树 |
 
 #### 目录树操作
 
-光标停留在目录树上，输入`m` 即可对改目录进行操作 ：
-
 | 快捷键 | 说明 |
 |-|-|
-| a | 新建文件夹/文件 |
-| m | 移动 |
-| c | 复制 |
-| d | 删除 |
+| m | 调出文件操作：在当前光标路径下新建/移动/复制/删除/重命名 |
+| u | 目录树转到父目录上 |
+| C | 目录树转到当前光标目录下 |
 
 ### Q&A
 
