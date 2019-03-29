@@ -19,7 +19,7 @@
 
 ### 效果图
 
-![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-2.png)
+![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-4.png)
 ![image](https://raw.githubusercontent.com/mangoer-ys/vim-conf/master/image/screenshot-3.png)
 
 ### 依赖
@@ -66,6 +66,7 @@
 | \dc | 自动为函数增加注释 |
 | \c | 增加注释 /* */ |
 | \x | 增加或取消注释 |
+| \\w \\b \\s \\j \\k | 快速移动 |
 | gg=G | 对整个文本进行格式化 |
 | shift+v = | 用shift+v选中多行后，按=号，可以格式化所选行 |
 | zm | 全部关闭代码折叠 |
