@@ -14,6 +14,13 @@ nnoremap <C-W>O     :call VjMaximizeToggle()<CR>
 nnoremap <C-W>o     :call VjMaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
 
+" ctrlsf
+nmap <Leader><Leader>c :CtrlSF<CR>
+
+" Split fast
+nnoremap <leader>1 :vs<CR>
+nnoremap <leader>- :sp<CR>
+
 
 " 临时映射 <F5>
 " Python
@@ -97,17 +104,17 @@ let NERDTreeIgnore=['\~$','\.swp']
 " nerdtree-git-plugin
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ 'Ignored'   : '☒',
+            \ "Unknown"   : "?"
+            \ }
 
 " 默认是否用 l 代替 o 打开文件
 let g:vj_nerdtree_compatible = 1
@@ -120,7 +127,6 @@ let g:vj_nerdtree_compatible = 1
 " autocmd VimEnter * if argc() | wincmd p | endif
 
 " tagbar右侧结构树<F7>
-" tagbar-phpctags
 let g:tagbar_indent = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_show_linenumbers = 1
@@ -131,32 +137,32 @@ let g:tagbar_phpctags_memory_limit = '512M'
 let g:tagbar_width = 30
 
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
 
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags' }
 
@@ -235,32 +241,20 @@ autocmd FileType html,php,javascript map <buffer> <Leader>ft :call VjFileTypeTog
 autocmd FileType go nnoremap <buffer> <C-]> :GoDef <CR>
 
 " EasyMotion
-" 快速移动
-" let g:EasyMotion_leader_key='<leader>'
-" map <C-O> <Leader><Leader>w
+let g:EasyMotion_leader_key='<leader>'
+map <C-O> <Leader><Leader>w
 " map <C-E> <Leader><Leader>W
 
 " 永远屏蔽补全Scrtach Preview窗口
 set completeopt-=preview
 
-" 离开插入模式或者在插入模式中移动时，关闭 Scratch Preview窗口
-" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" --- Emmet/ZenCoding
-" --- 快速生成任意HTML/CSS/XSL标签的「组合」
-"--: Redefine trigger key
-" let g:user_emmet_leader_key='<c-z>'
-
 " 打开VJ时是否定位到最后一个编辑的文件
-" g:vj_open_last_file_mode = 1
+" let g:vj_open_last_file_mode = 1
 " Nerdtree定位到最后一个文件
-" g:vj_source_from_code_mode = 0
+" let g:vj_source_from_code_mode = 0
 
 " Ag.vim
 let g:agprg="ag --skip-vcs-ignores  --smart-case --ignore-dir={_prj,node_modules,tmp}  --column"
-
-
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -269,13 +263,16 @@ let g:airline_section_c = '%{strftime("%c")}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#branch#enabled = 1
 let g:airline_theme='luna'
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 " let g:syntastic_go_checkers = ['go']
 let g:syntastic_go_checkers = ['gofmt']
 let g:syntastic_php_checkers = ['php']
@@ -283,4 +280,8 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_c_checkers = ['gcc']
 
 " vim-go
-let g:go_version_warning = 0
+" let g:go_version_warning = 0
+
+" neocomplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1

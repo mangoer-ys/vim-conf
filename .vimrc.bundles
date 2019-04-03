@@ -17,6 +17,7 @@ Plugin 'vim-airline/vim-airline',           {'bundle_dir': bundle_dir}
 Plugin 'vim-airline/vim-airline-themes',    {'bundle_dir': bundle_dir}
 
 " git
+Plugin 'tpope/vim-fugitive',                {'bundle_dir': bundle_dir}
 " Plugin 'jreybert/vimagit',                 {'bundle_dir': bundle_dir}
 " Plugin 'airblade/vim-gitgutter',           {'bundle_dir': bundle_dir}
 " Plugin 'mhinz/vim-signify',                {'bundle_dir': bundle_dir}
@@ -26,8 +27,11 @@ Plugin 'scrooloose/nerdtree',               {'bundle_dir': bundle_dir}
 Plugin 'jistr/vim-nerdtree-tabs',           {'bundle_dir': bundle_dir}
 Plugin 'Xuyuanp/nerdtree-git-plugin',       {'bundle_dir': bundle_dir}
 
+" icon
+" Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
+
 Plugin 'editorconfig/editorconfig-vim',     {'bundle_dir': bundle_dir}
-Plugin 'kien/ctrlp.vim',                    {'bundle_dir': bundle_dir}
+Plugin 'ctrlvim/ctrlp.vim',                    {'bundle_dir': bundle_dir}
 Plugin 'rking/ag.vim',                      {'bundle_dir': bundle_dir}
 Plugin 'dyng/ctrlsf.vim',                   {'bundle_dir': bundle_dir}
 Plugin 'tomtom/tcomment_vim',               {'bundle_dir': bundle_dir}
@@ -47,11 +51,14 @@ Plugin 'honza/vim-snippets',                {'bundle_dir': bundle_dir}
 
 Plugin 'ervandew/supertab',                 {'bundle_dir': bundle_dir}
 Plugin 'ervandew/matchem',                  {'bundle_dir': bundle_dir}
-" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
 
-Plugin 'tpope/vim-fugitive',                {'bundle_dir': bundle_dir}
 Plugin 'tpope/vim-unimpaired',              {'bundle_dir': bundle_dir}
+
+" auto complete
+" dependency lua
+Plugin 'Shougo/neocomplete.vim',            {'bundle_dir': bundle_dir}
+" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
 " Align
 " Plugin 'godlygeek/tabular',                {'bundle_dir': bundle_dir}

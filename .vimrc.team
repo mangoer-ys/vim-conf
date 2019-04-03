@@ -33,6 +33,8 @@ set expandtab
 set shiftwidth=4
 " set foldcolumn=2
 
+set hlsearch
+
 " Show the next match while entering a search
 set incsearch
 set showmatch
