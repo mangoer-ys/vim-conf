@@ -35,9 +35,28 @@ source ~/.vimrc.team
 syntax enable
 set background=dark
 colorscheme solarized
+" colorscheme gotham256
+" colorscheme gruvbox
+" colorscheme janah
 
-" set showtabline=0
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
+"
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+" let g:airline_theme='oceanicnext'
+
 set cmdheight=2
+
+" 突出显示当前行
+set cursorline                    
+" 突出显示当前列
+set cursorcolumn                
+
+" iabbrev class public class{}<esc>i<cr><esc>k$Fsli
+" iabbrev gpw t.Logger.Warn("1234")
 
 " set mouse=a
 

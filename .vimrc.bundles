@@ -6,11 +6,14 @@ let bundle_dir=expand('~/.vim/bundle/')
 "   exec "!mkdir -pv " . bundle_dir
 " endif
 "
+" Vundle
+" Plugin 'VundleVim/Vundle.vim',                  {'bundle_dir': bundle_dir}
 
 " base libary
 Plugin 'bufexplorer.zip',                   {'bundle_dir': bundle_dir}
 Plugin 'DoxygenToolkit.vim',                {'bundle_dir': bundle_dir}
 Plugin 'L9',                                {'bundle_dir': bundle_dir}
+
 
 " tab & status line
 Plugin 'vim-airline/vim-airline',           {'bundle_dir': bundle_dir}
@@ -51,6 +54,7 @@ Plugin 'honza/vim-snippets',                {'bundle_dir': bundle_dir}
 
 Plugin 'ervandew/supertab',                 {'bundle_dir': bundle_dir}
 Plugin 'ervandew/matchem',                  {'bundle_dir': bundle_dir}
+" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
 
 Plugin 'tpope/vim-unimpaired',              {'bundle_dir': bundle_dir}
@@ -58,7 +62,6 @@ Plugin 'tpope/vim-unimpaired',              {'bundle_dir': bundle_dir}
 " auto complete
 " dependency lua
 Plugin 'Shougo/neocomplete.vim',            {'bundle_dir': bundle_dir}
-" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
 " Align
 " Plugin 'godlygeek/tabular',                {'bundle_dir': bundle_dir}
