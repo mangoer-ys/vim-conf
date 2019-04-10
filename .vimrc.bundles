@@ -31,7 +31,7 @@ Plugin 'jistr/vim-nerdtree-tabs',           {'bundle_dir': bundle_dir}
 Plugin 'Xuyuanp/nerdtree-git-plugin',       {'bundle_dir': bundle_dir}
 
 " icon
-" Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
+Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
 
 Plugin 'editorconfig/editorconfig-vim',     {'bundle_dir': bundle_dir}
 Plugin 'ctrlvim/ctrlp.vim',                    {'bundle_dir': bundle_dir}

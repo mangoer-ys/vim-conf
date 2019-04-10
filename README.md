@@ -31,6 +31,7 @@
 
     [必须]字体
     github.com/powerline/fonts
+    github.com/ryanoasis/nerd-fonts
     
     Golang 
     代码跳转 godef  
@@ -39,6 +40,11 @@
     go get -u github.com/mdempsky/gocode
 
     Ack
+
+### 终端设置
+
+    Font: 12pt Monaco
+    Non-ASCII Font: 13pt Hack Regular Nerd Font Complete
 
 ### 安装
 
