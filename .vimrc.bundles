@@ -34,7 +34,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin',       {'bundle_dir': bundle_dir}
 Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
 
 Plugin 'editorconfig/editorconfig-vim',     {'bundle_dir': bundle_dir}
-Plugin 'ctrlvim/ctrlp.vim',                    {'bundle_dir': bundle_dir}
+Plugin 'ctrlpvim/ctrlp.vim',                    {'bundle_dir': bundle_dir}
 Plugin 'rking/ag.vim',                      {'bundle_dir': bundle_dir}
 Plugin 'dyng/ctrlsf.vim',                   {'bundle_dir': bundle_dir}
 Plugin 'tomtom/tcomment_vim',               {'bundle_dir': bundle_dir}
