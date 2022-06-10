@@ -11,6 +11,8 @@ call vundle#rc()
 " 团队vimrc文件根目录
 let VIMIDE_DIR=expand("<sfile>:p:h")
 
+let g:snipMate = { 'snippet_version' : 1 }
+
 if filereadable(expand(VIMIDE_DIR.'/.vimrc.bundles'))
     exec 'source '.VIMIDE_DIR.'/.vimrc.bundles'
 endif

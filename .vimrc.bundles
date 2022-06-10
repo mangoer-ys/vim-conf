@@ -72,7 +72,7 @@ Plugin 'shawncplus/phpcomplete.vim',        {'bundle_dir': bundle_dir}
 Plugin 'rayburgemeestre/phpfolding.vim',    {'bundle_dir': bundle_dir}
 
 " golang
-Plugin 'Blackrush/vim-gocode',              {'bundle_dir': bundle_dir}
+" Plugin 'Blackrush/vim-gocode',              {'bundle_dir': bundle_dir}
 Plugin 'fatih/vim-go',                      {'bundle_dir': bundle_dir}
 
 " front end
