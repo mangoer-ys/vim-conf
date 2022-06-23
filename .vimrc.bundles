@@ -1,4 +1,3 @@
-
 " 插件路径
 let bundle_dir=expand('~/.vim/bundle/')
 
@@ -14,65 +13,82 @@ Plugin 'bufexplorer.zip',                   {'bundle_dir': bundle_dir}
 Plugin 'DoxygenToolkit.vim',                {'bundle_dir': bundle_dir}
 Plugin 'L9',                                {'bundle_dir': bundle_dir}
 
-
 " tab & status line
 Plugin 'vim-airline/vim-airline',           {'bundle_dir': bundle_dir}
 Plugin 'vim-airline/vim-airline-themes',    {'bundle_dir': bundle_dir}
 
 " git
 Plugin 'tpope/vim-fugitive',                {'bundle_dir': bundle_dir}
-" Plugin 'jreybert/vimagit',                 {'bundle_dir': bundle_dir}
-" Plugin 'airblade/vim-gitgutter',           {'bundle_dir': bundle_dir}
-" Plugin 'mhinz/vim-signify',                {'bundle_dir': bundle_dir}
 
 " nerdtree
-Plugin 'scrooloose/nerdtree',               {'bundle_dir': bundle_dir}
-Plugin 'jistr/vim-nerdtree-tabs',           {'bundle_dir': bundle_dir}
-Plugin 'Xuyuanp/nerdtree-git-plugin',       {'bundle_dir': bundle_dir}
+Plugin 'scrooloose/nerdtree',                       {'bundle_dir': bundle_dir}
+Plugin 'jistr/vim-nerdtree-tabs',                   {'bundle_dir': bundle_dir}
+Plugin 'Xuyuanp/nerdtree-git-plugin',               {'bundle_dir': bundle_dir}
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight',   {'bundle_dir': bundle_dir}
+Plugin 'scrooloose/nerdtree-project-plugin',        {'bundle_dir': bundle_dir}
+Plugin 'PhilRunninger/nerdtree-visual-selection',   {'bundle_dir': bundle_dir}
 
 " icon
 Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
 
-Plugin 'editorconfig/editorconfig-vim',     {'bundle_dir': bundle_dir}
-Plugin 'ctrlpvim/ctrlp.vim',                    {'bundle_dir': bundle_dir}
-Plugin 'rking/ag.vim',                      {'bundle_dir': bundle_dir}
+" search/find
+Plugin 'ctrlpvim/ctrlp.vim',                {'bundle_dir': bundle_dir}
+Plugin 'mileszs/ack.vim',                   {'bundle_dir': bundle_dir}
+Plugin 'Yggdroot/LeaderF',                  {'bundle_dir': bundle_dir}
 Plugin 'dyng/ctrlsf.vim',                   {'bundle_dir': bundle_dir}
+
+" motion
+Plugin 'Lokaltog/vim-easymotion',           {'bundle_dir': bundle_dir}
+" only for current line
+Plugin 'joequery/Stupid-EasyMotion',        {'bundle_dir': bundle_dir}
+
+" editorconfig
+" consistent coding styles for multiple developers
+Plugin 'editorconfig/editorconfig-vim',     {'bundle_dir': bundle_dir}
+
+" file comment style
 Plugin 'tomtom/tcomment_vim',               {'bundle_dir': bundle_dir}
+Plugin 'tomtom/tlib_vim',                   {'bundle_dir': bundle_dir}
+
+" syntax check
 Plugin 'vim-syntastic/syntastic',           {'bundle_dir': bundle_dir}
 
 " tagbar
 Plugin 'majutsushi/tagbar',                 {'bundle_dir': bundle_dir}
 
-" cscope 支持
+" cscope generate index
 Plugin 'chazy/cscope_maps',                 {'bundle_dir': bundle_dir}
 
-" snipmate + snippets + autocomplpop补全
+" various utils such as caching interpreted contents of files or advanced glob like things
 Plugin 'MarcWeber/vim-addon-mw-utils',      {'bundle_dir': bundle_dir}
-Plugin 'tomtom/tlib_vim',                   {'bundle_dir': bundle_dir}
+
+" quickly insert code 
+" snipmate + snippets + autocomplete补全
 Plugin 'garbas/vim-snipmate',               {'bundle_dir': bundle_dir}
 Plugin 'honza/vim-snippets',                {'bundle_dir': bundle_dir}
 
+" allows you to use <Tab> for all your insert completion needs
 Plugin 'ervandew/supertab',                 {'bundle_dir': bundle_dir}
+
+" auto add closing quotes, parens, brackets, curlies and other such characters as you type
+" ?
 Plugin 'ervandew/matchem',                  {'bundle_dir': bundle_dir}
-" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
-
+" use [] with some key to make something
 Plugin 'tpope/vim-unimpaired',              {'bundle_dir': bundle_dir}
 
 " auto complete
 " dependency lua
 Plugin 'Shougo/neocomplete.vim',            {'bundle_dir': bundle_dir}
+" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
+" Plugin "ycm-core/YouCompleteMe",           {'bundle_dir': bundle_dir}
 
 " Align
-" Plugin 'godlygeek/tabular',                {'bundle_dir': bundle_dir}
 Plugin 'junegunn/vim-easy-align',           {'bundle_dir': bundle_dir}
-
-" php
-Plugin 'shawncplus/phpcomplete.vim',        {'bundle_dir': bundle_dir}
-Plugin 'rayburgemeestre/phpfolding.vim',    {'bundle_dir': bundle_dir}
+" The tabular plugin must come before vim-markdown
+Plugin 'godlygeek/tabular',                 {'bundle_dir': bundle_dir}
 
 " golang
-" Plugin 'Blackrush/vim-gocode',              {'bundle_dir': bundle_dir}
 Plugin 'fatih/vim-go',                      {'bundle_dir': bundle_dir}
 
 " front end
@@ -81,15 +97,23 @@ Plugin 'othree/html5.vim',                  {'bundle_dir': bundle_dir}
 Plugin 'maksimr/vim-jsbeautify',            {'bundle_dir': bundle_dir}
 " Plugin 'brookhong/cscope.vim',             {'bundle_dir': bundle_dir}
 
-" motion
-Plugin 'Lokaltog/vim-easymotion',           {'bundle_dir': bundle_dir}
-Plugin 'joequery/Stupid-EasyMotion',        {'bundle_dir': bundle_dir}
+" php
+Plugin 'shawncplus/phpcomplete.vim',        {'bundle_dir': bundle_dir}
+Plugin 'rayburgemeestre/phpfolding.vim',    {'bundle_dir': bundle_dir}
 
 " pylon_ide
 Plugin 'mangoer-ys/pylon_ide',              {'bundle_dir': bundle_dir}
 
-" nginx
-Plugin 'mangoer-ys/nginx-vim-syntax',       {'bundle_dir': bundle_dir}
+" a start screen for Vim and Neovim
+Plugin 'mhinz/vim-startify',                {'bundle_dir': bundle_dir}
+
+" markdown
+Plugin 'preservim/vim-markdown',            {'bundle_dir': bundle_dir}
+Plugin 'iamcco/markdown-preview.nvim',      {'bundle_dir': bundle_dir, 'do': 'call mkdp#util#install()'}
+" :call mkdp#util#install()
+
+" translate
+Plugin 'voldikss/vim-translator',           {'bundle_dir': bundle_dir}
 
 "--------------
 " Color Schemes

@@ -33,28 +33,30 @@ source ~/.vimrc.team
 "  ---------------------------------------------
 
 syntax enable
-set background=dark
-colorscheme solarized
+" set background=dark
+" set background=light
+" colorscheme solarized
 " colorscheme gotham256
 " colorscheme gruvbox
 " colorscheme janah
 
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
-"
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " let g:oceanic_next_terminal_bold = 1
 " let g:oceanic_next_terminal_italic = 1
-" colorscheme OceanicNext
-" let g:airline_theme='oceanicnext'
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 
-set cmdheight=2
+set cmdheight=1
 
 " 突出显示当前行
 set cursorline                    
 " 突出显示当前列
 set cursorcolumn                
 
+" auto generate code
 " iabbrev class public class{}<esc>i<cr><esc>k$Fsli
 " iabbrev gpw t.Logger.Warn("1234")
 
@@ -71,7 +73,7 @@ function AddTitle()
     call append(2,"// ================================================================")
     call append(3,"// Filename:      ".expand("%:t"))
     call append(4,"// Author:        Mangoer")
-    call append(5,"// EMail:         yangshuai07@baidu.com")
+    call append(5,"// EMail:         yangshuai1@ushareit.com")
     call append(6,"// Last modified: ".strftime("%Y-%m-%d %H:%M"))
     call append(7,"// Description:")
     call append(8,  "//  __  __")
@@ -88,10 +90,10 @@ endfunction
 " 更新最近修改时间和文件名
 function UpdateTitle()
     normal m'
-    execute '/\/\/ Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    execute '\/\/ Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
     normal ''
     normal mk
-    execute '/\/\/ Filename:      /s@:.*$@\=":\t\t".expand("%:t")@'
+    execute '\/\/ Filename:      /s@:.*$@\=":\t\t".expand("%:t")@'
     execute "noh"
     normal 'k
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None

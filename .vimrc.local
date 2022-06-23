@@ -14,6 +14,31 @@ nnoremap <C-W>O     :call VjMaximizeToggle()<CR>
 nnoremap <C-W>o     :call VjMaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
 
+nmap <F5>              : NERDTreeFocus<cr>R<c-w><c-p>
+nnoremap <silent><F7>  : TagbarToggle<CR>
+nnoremap \t            : TagbarToggle<CR>
+nnoremap <silent><F10> : NERDTreeTabsToggle<CR>
+nnoremap \n            : NERDTreeTabsToggle<CR>
+" NERDTree<F10>
+noremap <Leader>sf <Esc>:NERDTreeFind<CR>
+
+" translate
+" Echo translation in the cmdline
+nmap <silent> <Leader>t <Plug>TranslateW
+vmap <silent> <Leader>t <Plug>TranslateWV
+" Display translation in a window
+nmap <silent> <Leader><Leader>t <Plug>Translate
+vmap <silent> <Leader><Leader>t <Plug>TranslateV
+" Replace the text with translation
+nmap <silent> <Leader><Leader>r <Plug>TranslateR
+vmap <silent> <Leader><Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <Leader><Leader>x <Plug>TranslateX
+
+" next windows
+" nnoremap f <C-W>w<CR>
+nmap f <C-W>w<CR>
+
 " ctrlsf
 nmap <Leader><Leader>c :CtrlSF<CR>
 
@@ -21,36 +46,11 @@ nmap <Leader><Leader>c :CtrlSF<CR>
 nnoremap <leader>1 :vs<CR>
 nnoremap <leader>- :sp<CR>
 
-
-" 临时映射 <F5>
-" Python
-" if mapcheck('<F5>') == ""
-"    noremap <F5> :!python %<CR>
-"    inoremap <F5> <ESC><ESC>:w<CR>:!python %<CR>
-" endif
-
-" shell script
-" noremap  <F5> <ESC>:w<CR>:!sh ./%<CR>
-" inoremap <F5> <ESC><ESC>:w<CR>:!sh ./%<CR>
-
-" Go Lang
-" au Filetype go set makeprg=go\ build\ ./...
-" noremap  <F5> :make<CR>:copen<CR>
-" inoremap <F5> <ESC><ESC>:w<CR>:make><CR>:copen<CR>
-
-" 请勿在项目文件中使用以下快捷键映射
-" <F7>   <Esc>: call Pylon_prj_cmd("build_index.sh") <CR>
-" <F8>   <Esc>: call Pylon_prj_cmd(g:pylon_prj_init) <CR>
-" <F9>   <Esc>: call Pylon_build_index() <CR>
-
-" ctrlp
+" CtrlP <C-p>
+" <ESC>
 nmap <F3> <Esc>:CtrlP<CR>
-
-nnoremap <F5>          : VJNERDTreeRefresh<CR>
-nnoremap <silent><F7>  : TagbarToggle<CR>
-nnoremap \t            : TagbarToggle<CR>
-nnoremap <silent><F10> : NERDTreeTabsToggle<CR>
-nnoremap \n            : NERDTreeTabsToggle<CR>
+" noremap <Leader>be <Esc>:CtrlPBuffer<CR>
+noremap <Leader>bm <Esc>:CtrlPMRU<CR>
 
 " <Leader>快捷键定义
 " let mapleader = '\'
@@ -63,20 +63,6 @@ map <silent> `s <Esc>:w<CR>:exe ":echo 'saved'"<CR>
 
 " 零时获取sudo权限[w!!]
 cmap w!! %!sudo tee > /dev/null %
-
-" CtrlP <C-p>
-" noremap <Leader>be <Esc>:CtrlPBuffer<CR>
-noremap <Leader>bm <Esc>:CtrlPMRU<CR>
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$|(node_modules|_prj|tmp)$',
-            \ 'file': '\v\.(exe|so|dll)$|.prjide',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-
-"智能大小写
-set ignorecase
-set smartcase
 
 " DoxygenToolkit.vim
 " 生成Doxygen风格的文档注释
@@ -93,13 +79,31 @@ noremap  <Leader>C :TCommentMaybeInline<cr>
 noremap  <Leader>c :TCommentBlock<cr>
 xnoremap <Leader>c :TCommentBlock<cr>
 
-" NERDTree<F10>
-noremap <Leader>sf <Esc>:NERDTreeFind<CR>
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+vnoremap <Leader> : :EasyAlign:s0l1<CR>
+
+" markdown
+" zR zr zm
+
+" 智能大小写
+set ignorecase
+set smartcase
+
+" cscope
+" Avoiding duplicate cscope database error within VIM
+set nocscopeverbose
+" set cscopetag
+
+" 永远屏蔽补全Scrtach Preview窗口
+set completeopt-=preview
+
+
 let g:NERDTreeDirArrows = 0
 " 隐藏帮助说明和书签
-let NERDTreeMinimalUI = 1
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore = ['\~$','\.swp']
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore = ['\~$','\.swp']
 let g:NERDTreeChDirMode = 2
 
 " nerdtree-git-plugin
@@ -136,7 +140,6 @@ let g:tagbar_zoomwidth = 1
 " let g:tagbar_autoclose = 1
 let g:tagbar_phpctags_memory_limit = '512M'
 let g:tagbar_width = 30
-
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
@@ -167,42 +170,8 @@ let g:tagbar_type_go = {
 
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags' }
 
-" cscope
-"" Avoiding duplicate cscope database error within VIM
-set nocscopeverbose
-" set cscopetag
-
 " phpfolding.vim
-let php_folding=0
-autocmd FileType php setlocal foldmethod=manual
-autocmd FileType php nnoremap ++  :DisablePHPFolds<CR>
-autocmd FileType php nnoremap --  :EnableFastPHPFolds<CR>
-
-" 在{与}之间换行，能自动插入新行
-autocmd FileType php,javascript inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-autocmd FileType php inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
-
-" Ctags
-let g:prj = getcwd()
-
-func! UpdatePrjTags()
-    " 将 _prj/ 下 tags 结尾的文件
-    let tag_list=split(globpath(g:prj."/_prj/", '*tags'), "\n")
-    set tags=
-    let i=0
-
-    while i<len(tag_list)
-        if filereadable(tag_list[i])
-            " echo a:tag_list[i]
-            execute "set tags+=".tag_list[i]
-        endif
-        let i+=1
-    endwhile
-endf
-
-if filereadable('./_prj/tags')
-    :call UpdatePrjTags()
-endif
+let g:php_folding=0
 
 " 避免和supertab冲突
 let g:SuperTabDefaultCompletionType = "context"
@@ -210,45 +179,16 @@ let g:SuperTabDefaultCompletionType = "context"
 " 关闭phpcomplete 跳转功能,完全使用 ctags 与 cscope
 let g:phpcomplete_enhance_jump_to_definition=0
 
-" 弹出窗口快捷键映射
-" inoremap <expr><CR>  pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
-" inoremap <expr><Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
-" inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-" inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-
 " phpqa
 let g:phpqa_codesniffer_args = "--standard=Zend"
 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codesniffer_autorun = 0
 let g:phpqa_messdetector_autorun = 0
 
-" vim-easy-align
-vmap <Enter> <Plug>(EasyAlign)
-vnoremap <Leader>: :EasyAlign:s0l1<CR>
-
-" vim-jsbeautify
-" unmap! <c-f>
-autocmd FileType javascript noremap <buffer> <Leader>ff  : call JsBeautify()<CR>
-autocmd FileType html noremap <buffer> <Leader>ff        : call HtmlBeautify()<CR>
-autocmd FileType css noremap <buffer> <Leader>ff         : call CSSBeautify()<CR>
-autocmd FileType php noremap <buffer> <Leader>ff         : call VjPhpBeautify()<CR>
-autocmd FileType javascript vnoremap <buffer> <Leader>ff : call RangeJsBeautify()<CR>
-autocmd FileType html vnoremap <buffer> <Leader>ff       : call RangeHtmlBeautify()<CR>
-autocmd FileType css vnoremap <buffer> <Leader>ff        : call RangeCSSBeautify()<CR>
-
-" 切换php/html/javascript文件类型以配合缩进和语法补全
-autocmd FileType html,php,javascript map <buffer> <Leader>ft :call VjFileTypeToggle()<CR>
-
-" golang
-autocmd FileType go nnoremap <buffer> <C-]> :GoDef <CR>
-
 " EasyMotion
 let g:EasyMotion_leader_key='<leader>'
 " map <C-O> <Leader><Leader>w
 " map <C-E> <Leader><Leader>W
-
-" 永远屏蔽补全Scrtach Preview窗口
-set completeopt-=preview
 
 " 打开VJ时是否定位到最后一个编辑的文件
 " let g:vj_open_last_file_mode = 1
@@ -276,14 +216,44 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
-let g:syntastic_go_checkers = ['gofmt']
 let g:syntastic_php_checkers = ['php']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_c_checkers = ['gcc']
+let g:syntastic_java_checkers = ['']
+" let g:syntastic_cpp_checkers = ['gcc']
+" let g:syntastic_c_checkers = ['gcc']
+" let g:syntastic_go_checkers = ['gofmt']
+let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " vim-go
 " let g:go_version_warning = 0
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_fmt_autosave = 1
+let g:go_fmt_command='goimports'
+let g:go_debug_windows = {
+      \ 'vars':       'rightbelow 60vnew',
+      \ 'stack':      'rightbelow 10new',
+\ }
+let g:go_doc_popup_window = 1
+let g:go_list_type = "quickfix"
 
 " neocomplete
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
+
+" ctrlp
+let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$|(node_modules|_prj|tmp)$',
+            \ 'file': '\v\.(exe|so|dll)$|.prjide',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
