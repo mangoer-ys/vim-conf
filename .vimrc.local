@@ -16,17 +16,17 @@ nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
 
 nmap <F5>              : NERDTreeFocus<cr>R<c-w><c-p>
 nnoremap <silent><F7>  : TagbarToggle<CR>
-nnoremap \t            : TagbarToggle<CR>
+" nnoremap \t            : TagbarToggle<CR>
 nnoremap <silent><F10> : NERDTreeTabsToggle<CR>
 nnoremap \n            : NERDTreeTabsToggle<CR>
 " NERDTree<F10>
 noremap <Leader>sf <Esc>:NERDTreeFind<CR>
 
 " translate
-" Echo translation in the cmdline
+" Display translation in a window
 nmap <silent> <Leader>t <Plug>TranslateW
 vmap <silent> <Leader>t <Plug>TranslateWV
-" Display translation in a window
+" Echo translation in the cmdline
 nmap <silent> <Leader><Leader>t <Plug>Translate
 vmap <silent> <Leader><Leader>t <Plug>TranslateV
 " Replace the text with translation
@@ -37,7 +37,11 @@ nmap <silent> <Leader><Leader>x <Plug>TranslateX
 
 " next windows
 " nnoremap f <C-W>w<CR>
-nmap f <C-W>w<CR>
+nmap <C-w> <C-W>w<CR>
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
 " ctrlsf
 nmap <Leader><Leader>c :CtrlSF<CR>
@@ -47,10 +51,16 @@ nnoremap <leader>1 :vs<CR>
 nnoremap <leader>- :sp<CR>
 
 " CtrlP <C-p>
-" <ESC>
+" <ESC> exit
 nmap <F3> <Esc>:CtrlP<CR>
 " noremap <Leader>be <Esc>:CtrlPBuffer<CR>
 noremap <Leader>bm <Esc>:CtrlPMRU<CR>
+
+" leaderf
+" \f search file
+" ctrl + b search word
+" esc exit
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg")<CR><CR>
 
 " <Leader>快捷键定义
 " let mapleader = '\'
@@ -81,7 +91,13 @@ xnoremap <Leader>c :TCommentBlock<cr>
 
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
-vnoremap <Leader> : :EasyAlign:s0l1<CR>
+vnoremap <Leader>: :EasyAlign:s0l1<CR>
+
+" vim-easymotion
+map <Leader><Leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>l <Plug>(easymotion-lineforward)
+map <Leader><Leader>. <Plug>(easymotion-repeat)
+map <Leader><Leader>2 <Plug>(easymotion-s2)
 
 " markdown
 " zR zr zm
@@ -187,6 +203,7 @@ let g:phpqa_messdetector_autorun = 0
 
 " EasyMotion
 let g:EasyMotion_leader_key='<leader>'
+let g:EasyMotion_smartcase = 1
 " map <C-O> <Leader><Leader>w
 " map <C-E> <Leader><Leader>W
 
@@ -257,3 +274,7 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll)$|.prjide',
             \ 'link': 'some_bad_symbolic_links',
             \ }
+
+" leaderf
+let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowPosition = 'popup'

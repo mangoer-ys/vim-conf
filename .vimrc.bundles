@@ -38,7 +38,7 @@ Plugin 'Yggdroot/LeaderF',                  {'bundle_dir': bundle_dir}
 Plugin 'dyng/ctrlsf.vim',                   {'bundle_dir': bundle_dir}
 
 " motion
-Plugin 'Lokaltog/vim-easymotion',           {'bundle_dir': bundle_dir}
+Plugin 'easymotion/vim-easymotion',           {'bundle_dir': bundle_dir}
 " only for current line
 Plugin 'joequery/Stupid-EasyMotion',        {'bundle_dir': bundle_dir}
 
@@ -90,6 +90,7 @@ Plugin 'godlygeek/tabular',                 {'bundle_dir': bundle_dir}
 
 " golang
 Plugin 'fatih/vim-go',                      {'bundle_dir': bundle_dir}
+Plugin 'buoto/gotests-vim',                 {'bundle_dir': bundle_dir}
 
 " front end
 Plugin 'mattn/emmet-vim',                   {'bundle_dir': bundle_dir}

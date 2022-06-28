@@ -98,6 +98,8 @@ autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,*_ngx.conf set f
 autocmd BufRead,BufNewFile FileType html setlocal foldlevel=2
 " 保存前自动压缩末尾空格
 autocmd BufWritePre *.pl :%s/\s\+$//e
+" start vim with nerd tree open auto
+" autocmd VimEnter * NERDTree
 
 let editorconfig=expand('~/.vim/bundle/.editorconfig')
 if filereadable(editorconfig)

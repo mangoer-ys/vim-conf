@@ -33,12 +33,6 @@
     github.com/powerline/fonts
     github.com/ryanoasis/nerd-fonts
     
-    Golang 
-    代码跳转 godef  
-    go get -u github.com/rogpeppe/godef
-    代码补全 gocode 
-    go get -u github.com/mdempsky/gocode
-
     Ack
 
 ### 终端设置
@@ -58,6 +52,21 @@
 |快捷键|说明|
 |-|-|
 | ctrl + p | 查找文件 |
+| \\bm | 查找文件 最近打开文件 |
+| \\ + f | 查找文件 |
+| \\\c | 关键词查找，界面友好 |
+| ctrl + b | 关键字查找 |
+| ctrl + ] | 代码跳转 |
+| \\\\w | 行内跳转 每个单词头部 |
+| \\\\W | 行内跳转 每个单词尾部 |
+| \\\\f | 行内跳转 按照输入字符 |
+| \\\\s | 窗口内跳转 按照输入字符 |
+| \\\\j | 行级跳转 向下 |
+| \\j | 行级跳转 向下 |
+| \\\\k | 行级跳转 向上 |
+| \\k | 行级跳转 向上 |
+| \\\\h | 行内跳转 向左 |
+| \\\\l | 行内跳转 向右 |
 | ctrl + e | 多tab向右切换 |
 | ctrl + r | 多tab向左切换 |
 | ctrl + xo | 代码补全 |
@@ -78,16 +87,22 @@
 | \x | 增加或取消注释 |
 | \sf | 跳到当前文件在目录树中的位置 |
 | \\\w \\\b \\\s \\\j \\\k | 快速移动 |
-| \\\c | 关键词查找，界面友好 |
 | \\n | 打开或关闭左侧目录树 |
 | \\t | 窗口右侧显示文件结构 方法变量等 |
 | \\V | 快速使.vimrc配置生效 |
 | \`s | 快速保存 | 
+| \\t | 翻译文本 弹窗形式 | 
+| \\\\t | 翻译文本 cmdline形式 | 
+| \\\\r | 翻译文本 替换显示 | 
 | gg=G | 对整个文本进行格式化 |
 | shift+v = | 用shift+v选中多行后，按=号，可以格式化所选行 |
 | zm | 全部关闭代码折叠 |
 | zn | 全部展开代码折叠 |
 | zc | 展开一级代码折叠 |
+| zR | 打开markdown全部的折叠 |
+| zr | 打开markdown当前的折叠 |
+| zm | 折叠markdown |
+| \<Enter\> \":"/./= | Visual Mode对齐 |
 | F3 | 查找文件 |
 | F4 | 文件头部加作者时间等注释 |
 | F5 | 刷新目录树 |
@@ -95,6 +110,18 @@
 | F8 | 执行当前目录下 `_prj/init.sh` 自定义脚本 |
 | F9 ctrl + ] | 函数跳转 |
 | F10 | 打开或关闭左侧目录树 |
+
+#### 常用命令
+| 命令 | 说明 |
+|-|-|
+| :MarkdownPreview | markdown浏览器预览 |
+| :MarkdownPreviewStop | 停止markdown预览 |
+| :help map-overview | 查看map命令使用方式 |
+| :verbose map \<key\> | 查看快捷键映射 |
+| :map\|nmap\|vmap\|cmap\|xmap\|noremap\|nnoremap | 查看已绑定的快捷键 |
+| :Ack \<pattern\> | 关键字查找 |
+| :GoTests | golang生成单测函数 |
+
 
 #### 目录树操作
 
