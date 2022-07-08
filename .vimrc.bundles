@@ -4,14 +4,20 @@ let bundle_dir=expand('~/.vim/bundle/')
 " if !exists(bundle_dir)
 "   exec "!mkdir -pv " . bundle_dir
 " endif
-"
+
+" ===================================
+" Plugin List
+" ===================================
 " Vundle
-" Plugin 'VundleVim/Vundle.vim',                  {'bundle_dir': bundle_dir}
+Plugin 'VundleVim/Vundle.vim',              {'bundle_dir': bundle_dir}
 
 " base libary
 Plugin 'bufexplorer.zip',                   {'bundle_dir': bundle_dir}
 Plugin 'DoxygenToolkit.vim',                {'bundle_dir': bundle_dir}
 Plugin 'L9',                                {'bundle_dir': bundle_dir}
+
+" code highlight
+Plugin 'sheerun/vim-polyglot',              {'bundle_dir': bundle_dir}
 
 " tab & status line
 Plugin 'vim-airline/vim-airline',           {'bundle_dir': bundle_dir}
@@ -19,17 +25,24 @@ Plugin 'vim-airline/vim-airline-themes',    {'bundle_dir': bundle_dir}
 
 " git
 Plugin 'tpope/vim-fugitive',                {'bundle_dir': bundle_dir}
+Plugin 'airblade/vim-gitgutter',            {'bundle_dir': bundle_dir}
+Plugin 'rhysd/git-messenger.vim',           {'bundle_dir': bundle_dir}
+
+" undotree: store history
+Plugin 'mbbill/undotree',                   {'bundle_dir': bundle_dir}
 
 " nerdtree
-Plugin 'scrooloose/nerdtree',                       {'bundle_dir': bundle_dir}
+Plugin 'preservim/nerdtree',                        {'bundle_dir': bundle_dir}
 Plugin 'jistr/vim-nerdtree-tabs',                   {'bundle_dir': bundle_dir}
 Plugin 'Xuyuanp/nerdtree-git-plugin',               {'bundle_dir': bundle_dir}
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight',   {'bundle_dir': bundle_dir}
-Plugin 'scrooloose/nerdtree-project-plugin',        {'bundle_dir': bundle_dir}
 Plugin 'PhilRunninger/nerdtree-visual-selection',   {'bundle_dir': bundle_dir}
 
 " icon
 Plugin 'ryanoasis/vim-devicons',            {'bundle_dir': bundle_dir}
+
+" brackets
+Plugin 'luochen1990/rainbow',               {'bundle_dir': bundle_dir}
 
 " search/find
 Plugin 'ctrlpvim/ctrlp.vim',                {'bundle_dir': bundle_dir}
@@ -38,7 +51,7 @@ Plugin 'Yggdroot/LeaderF',                  {'bundle_dir': bundle_dir}
 Plugin 'dyng/ctrlsf.vim',                   {'bundle_dir': bundle_dir}
 
 " motion
-Plugin 'easymotion/vim-easymotion',           {'bundle_dir': bundle_dir}
+Plugin 'easymotion/vim-easymotion',         {'bundle_dir': bundle_dir}
 " only for current line
 Plugin 'joequery/Stupid-EasyMotion',        {'bundle_dir': bundle_dir}
 
@@ -51,7 +64,11 @@ Plugin 'tomtom/tcomment_vim',               {'bundle_dir': bundle_dir}
 Plugin 'tomtom/tlib_vim',                   {'bundle_dir': bundle_dir}
 
 " syntax check
-Plugin 'vim-syntastic/syntastic',           {'bundle_dir': bundle_dir}
+if v:version < 800
+    Plugin 'vim-syntastic/syntastic',           {'bundle_dir': bundle_dir}
+else
+    Plugin 'dense-analysis/ale',                {'bundle_dir': bundle_dir}
+endif
 
 " tagbar
 Plugin 'majutsushi/tagbar',                 {'bundle_dir': bundle_dir}
@@ -62,7 +79,7 @@ Plugin 'chazy/cscope_maps',                 {'bundle_dir': bundle_dir}
 " various utils such as caching interpreted contents of files or advanced glob like things
 Plugin 'MarcWeber/vim-addon-mw-utils',      {'bundle_dir': bundle_dir}
 
-" quickly insert code 
+" quickly insert code
 " snipmate + snippets + autocomplete补全
 Plugin 'garbas/vim-snipmate',               {'bundle_dir': bundle_dir}
 Plugin 'honza/vim-snippets',                {'bundle_dir': bundle_dir}
@@ -79,9 +96,11 @@ Plugin 'tpope/vim-unimpaired',              {'bundle_dir': bundle_dir}
 
 " auto complete
 " dependency lua
-Plugin 'Shougo/neocomplete.vim',            {'bundle_dir': bundle_dir}
-" Plugin "Valloric/YouCompleteMe",           {'bundle_dir': bundle_dir}
-" Plugin "ycm-core/YouCompleteMe",           {'bundle_dir': bundle_dir}
+" Plugin 'Shougo/neocomplete.vim',            {'bundle_dir': bundle_dir}
+Plugin 'ycm-core/YouCompleteMe',            {'bundle_dir': bundle_dir}
+" Plugin 'neoclide/coc.nvim',                 {'bundle_dir': bundle_dir}
+" Plugin 'jayli/vim-easycomplete',            {'bundle_dir': bundle_dir}
+" Plugin 'SirVer/ultisnips',                  {'bundle_dir': bundle_dir}
 
 " Align
 Plugin 'junegunn/vim-easy-align',           {'bundle_dir': bundle_dir}
@@ -109,12 +128,22 @@ Plugin 'mangoer-ys/pylon_ide',              {'bundle_dir': bundle_dir}
 Plugin 'mhinz/vim-startify',                {'bundle_dir': bundle_dir}
 
 " markdown
+" zR zr zm
 Plugin 'preservim/vim-markdown',            {'bundle_dir': bundle_dir}
 Plugin 'iamcco/markdown-preview.nvim',      {'bundle_dir': bundle_dir, 'do': 'call mkdp#util#install()'}
 " :call mkdp#util#install()
 
 " translate
 Plugin 'voldikss/vim-translator',           {'bundle_dir': bundle_dir}
+
+Plugin 'ianding1/leetcode.vim',             {'bundle_dir': bundle_dir}
+
+" Calendar
+Plugin 'itchyny/calendar.vim',              {'bundle_dir': bundle_dir}
+
+Plugin 'mg979/vim-visual-multi',            {'bundle_dir': bundle_dir}
+
+" Plugin 'preservim/vim-wordy',               {'bundle_dir': bundle_dir}
 
 "--------------
 " Color Schemes
@@ -134,3 +163,233 @@ Plugin 'mhartington/oceanic-next',          {'bundle_dir': bundle_dir}
 Plugin 'romainl/flattened',                 {'bundle_dir': bundle_dir}
 Plugin 'junegunn/seoul256.vim',             {'bundle_dir': bundle_dir}
 Plugin 'KabbAmine/yowish.vim',              {'bundle_dir': bundle_dir}
+Plugin 'flazz/vim-colorschemes',            {'bundle_dir': bundle_dir}
+
+" ===================================
+" Plugin Config
+" ===================================
+let g:NERDTreeDirArrows = 0
+" 隐藏帮助说明和书签
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore = ['\~$','\.swp']
+let g:NERDTreeChDirMode = 2
+
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusShowIgnored = 1
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
+
+" 默认是否用 l 代替 o 打开文件
+let g:vj_nerdtree_compatible = 1
+
+" autocmd VimEnter * NERDTreeTabsToggle
+" --- 若NERDTree是关闭其他Buffer后剩下的唯一窗口，则退出Vim
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" let g:nerdtree_tabs_autoclose=0
+" --- 若使用Vim打开某个文件，则自动打开NERDTree的同时，将焦点也转移至新文件中
+" autocmd VimEnter * if argc() | wincmd p | endif
+
+" tagbar右侧结构树<F7>
+let g:tagbar_indent = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_show_linenumbers = 1
+let g:tagbar_zoomwidth = 1
+" let g:tagbar_autopreview = 1
+" let g:tagbar_autoclose = 1
+let g:tagbar_phpctags_memory_limit = '512M'
+let g:tagbar_width = 30
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
+let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags' }
+
+" phpfolding.vim
+let g:php_folding = 0
+
+" 避免和supertab冲突
+let g:SuperTabDefaultCompletionType = "context"
+
+" 关闭phpcomplete 跳转功能,完全使用 ctags 与 cscope
+let g:phpcomplete_enhance_jump_to_definition = 0
+
+" phpqa
+let g:phpqa_codesniffer_args = "--standard=Zend"
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+let g:phpqa_messdetector_autorun = 0
+
+" EasyMotion
+let g:EasyMotion_leader_key = '<leader>'
+let g:EasyMotion_smartcase = 1
+" map <C-O> <Leader><Leader>w
+" map <C-E> <Leader><Leader>W
+
+" 打开VJ时是否定位到最后一个编辑的文件
+" let g:vj_open_last_file_mode = 1
+" Nerdtree定位到最后一个文件
+" let g:vj_source_from_code_mode = 0
+
+" Ag.vim
+let g:agprg = "ag --skip-vcs-ignores  --smart-case --ignore-dir={_prj,node_modules,tmp}  --column"
+
+" airline
+let g:airline_powerline_fonts = 1
+" let g:airline_section_b = '%{strftime("%c")}'
+let g:airline_section_c = '%{strftime("%c")}'
+" section c 显示完整文件路径
+" let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+" 开启 tabline
+let g:airline#extensions#tabline#enabled = 1
+" tabline 中当前 buffer 两端的分隔字符
+let g:airline#extensions#tabline#left_sep = ' '
+" tabline 中未激活 buffer 两端的分隔字符
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" tabline 中 buffer 显示编号
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" tabline 格式： default, jsformatter, unique_tail, unique_tail_improved
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#branch#enabled = 1
+let g:airline_theme = 'luna'
+let g:airline#extensions#nerdtree_statusline = 1
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_java_checkers = ['']
+" let g:syntastic_cpp_checkers = ['gcc']
+" let g:syntastic_c_checkers = ['gcc']
+" let g:syntastic_go_checkers = ['gofmt']
+let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" vim-go
+" let g:go_version_warning = 0
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_build_constraints = 1
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = 'goimports'
+let g:go_debug_windows = {
+      \ 'vars':       'rightbelow 60vnew',
+      \ 'stack':      'rightbelow 10new',
+\ }
+let g:go_doc_popup_window = 1
+let g:go_list_type = "quickfix"
+
+" neocomplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+
+" ctrlp
+let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$|(node_modules|_prj|tmp)$',
+            \ 'file': '\v\.(exe|so|dll)$|.prjide',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+
+" leaderf
+let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowPosition = 'popup'
+
+let g:snipMate = { 'snippet_version' : 1 }
+
+let g:rainbow_active = 1
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
+let g:rainbow_conf = {
+	\	'separately': {
+	\		'nerdtree': 0,
+	\	}
+	\}
+
+" ycm
+let g:ycm_seed_identifiers_with_syntax = 1
+
+let g:deoplete#enable_at_startup = 1
+
+" ale
+let g:ale_set_highlights = 0
+let g:ale_linters = {
+\   'python': ['pylint', 'flake8'],
+\   'c': ['gcc', 'cppcheck'],
+\   'cpp': ['gcc', 'cppcheck'],
+\   'go': ['gofmt', 'golint', 'golangci-lint'],
+\   'vimwiki': ['markdownlint'],
+\   'markdown': ['markdownlint'],
+\ }
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['gofmt', 'gofumpt', 'goimports', 'golines'],
+\}
+
+" undotree
+if has("persistent_undo")
+   let target_path = expand('~/.vim/undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
+let editorconfig=expand('~/.vim/bundle/.editorconfig')
+if filereadable(editorconfig)
+    let g:editorconfig_Beautifier=editorconfig
+endif

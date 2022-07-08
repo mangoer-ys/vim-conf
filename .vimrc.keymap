@@ -1,0 +1,211 @@
+nnoremap [m  <Esc> :tabprevious<CR>
+nnoremap ]m  <Esc> :tabnext<CR>
+
+" new tab
+nnoremap <C-t>      :tabnew<CR>
+inoremap <C-t><Esc> :tabnew<CR>
+
+" tab switch
+nnoremap <C-e> :bnext<CR>
+nnoremap <C-r> :bpre<CR>
+
+" visual 模式下 Ctrl+c 复制选中内容到剪贴板
+vmap <C-c> "+y
+" normal 模式下 Ctrl+c 全选并复制到系统剪贴板(linux 必须装有 vim-gnome)
+nmap <C-c> gg"+yG
+" Ctrl+v 原样粘贴剪切板内容
+inoremap <C-v> <ESC>"+pa
+
+" 在 Normal Mode 和 Visual/Select Mode 下，利用 > 键和 < 键来缩进文本
+nnoremap > >>
+nnoremap < <<
+vnoremap > >gv
+vnoremap < <gv
+
+" Map ; to : and save a million keystrokes 用于快速进入命令行
+nnoremap ; :
+
+nnoremap Q :q<CR>
+nnoremap S :w<CR>
+
+" 搜索相关
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+" 进入搜索Use sane regexes"
+" nnoremap / /\v
+" vnoremap / /\v
+
+" windows maximize
+nnoremap <C-W>O     :call VjMaximizeToggle()<CR>
+nnoremap <C-W>o     :call VjMaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call VjMaximizeToggle()<CR>
+
+" open term
+noremap <F2> :belowright term ++rows=10<CR>
+" switch term window to normal mode
+tnoremap <C-n> <C-\><C-N>
+
+" CtrlP <C-p>
+" <ESC> exit
+nmap <F3> <Esc>:CtrlP<CR>
+" noremap <Leader>be <Esc>:CtrlPBuffer<CR>
+noremap <Leader>bm <Esc>:CtrlPMRU<CR>
+
+" 进行版权声明的设置
+" 添加或更新头
+nmap <F4> :call TitleDet()<CR>
+
+" refresh nerdtree
+nmap <F5> :NERDTreeFocus<cr>R<c-w><c-p>
+
+" ale fix code
+nnoremap <F6> :ALEFix<CR>
+
+" toggle tarbar
+nnoremap <silent><F7>  :TagbarToggle<CR>
+" nnoremap \t            : TagbarToggle<CR>
+
+nnoremap <F8> :UndotreeToggle<CR>
+
+" open nerdtree window
+nnoremap <silent><F10> :NERDTreeTabsToggle<CR>
+nnoremap \n            :NERDTreeTabsToggle<CR>
+" NERDTree<F10>
+noremap <Leader>sf <Esc>:NERDTreeFind<CR>
+
+" translate
+" Display translation in a window
+nmap <silent> <Leader>t <Plug>TranslateW
+vmap <silent> <Leader>t <Plug>TranslateWV
+" Echo translation in the cmdline
+nmap <silent> <Leader><Leader>t <Plug>Translate
+vmap <silent> <Leader><Leader>t <Plug>TranslateV
+" Replace the text with translation
+nmap <silent> <Leader><Leader>r <Plug>TranslateR
+vmap <silent> <Leader><Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <Leader><Leader>x <Plug>TranslateX
+
+" next windows
+nnoremap <space> <C-W>w
+" nnoremap <C-w> <C-W>w
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
+
+" ctrlsf
+nmap <Leader><Leader>c :CtrlSF<CR>
+
+" Split fast
+nnoremap <leader>1 :vs<CR>
+nnoremap <leader>- :sp<CR>
+
+
+" leaderf
+" \f search file
+" ctrl + b search word
+" esc exit
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg")<CR><CR>i
+
+" <Leader>快捷键定义
+" let mapleader = '\'
+
+" 快速使.vimrc配置生效
+map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>
+
+" 快速保存
+map <silent> `s <Esc>:w<CR>:exe ":echo 'saved'"<CR>
+
+" 零时获取sudo权限[w!!]
+cmap w!! %!sudo tee > /dev/null %
+
+" DoxygenToolkit.vim
+" 生成Doxygen风格的文档注释
+noremap <Leader>dc <Esc>:Dox<CR>
+noremap <Leader>da <Esc>:DoxAuthor<CR>
+" noremap <Leader>dd <Esc>:DoxUndoc<CR>
+
+" tcommment_vim
+" 代码注释
+noremap  <Leader>x :TComment<cr>
+noremap  <Leader>X :TCommentRight<cr>
+xnoremap <Leader>x :TCommentMaybeInline<cr>
+noremap  <Leader>C :TCommentMaybeInline<cr>
+noremap  <Leader>c :TCommentBlock<cr>
+xnoremap <Leader>c :TCommentBlock<cr>
+
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+vnoremap <Leader>: :EasyAlign:s0l1<CR>
+
+" vim-easymotion
+map <Leader><Leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>l <Plug>(easymotion-lineforward)
+map <Leader><Leader>. <Plug>(easymotion-repeat)
+map <Leader><Leader>2 <Plug>(easymotion-s2)
+
+" Visual Mode 快捷键
+map vi' <Esc>?'<CR>lv/'<CR>h
+map vi" <Esc>?"<CR>lv/"<CR>h
+map va' <Esc>?'<CR>v/'<CR>
+map va" <Esc>?"<CR>v/"<CR>
+map vix <Esc>?><CR>lv/<<CR>h
+map vi= <ESC>?\s\+\S\+\s*=\s*\S\+<CR>lv/=<CR>/\S<CR>/[\s<>\n]<CR>h
+map vi/ <Esc>?\/<CR>l<Esc>v/\/<CR>h
+map vt) <ESC>v/)<CR>h
+map vt' <ESC>v/'<CR>h
+map vt" <ESC>v/"<CR>h
+map vt; <ESC>v/;<CR>h
+map vt, <ESC>v/,<CR>h
+map vt} <ESC>v/}<CR>h
+
+" ===================================
+" function
+" ===================================
+function AddTitle()
+    call append(1,"/*")
+    call append(2,"// ================================================================")
+    call append(3,"// Filename:      ".expand("%:t"))
+    call append(4,"// Author:        xxxxxxx")
+    call append(5,"// EMail:         xxxxxxx")
+    call append(6,"// Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(7,"// Description:")
+    call append(8,  "//  __  __")
+    call append(9,  "// |  \\/  | __ _ _ __   __ _  ___   ___ _ __")
+    call append(10, "// | |\\/| |/ _` | '_ \\ / _` |/ _ \\ / _ \\ '__|")
+    call append(11, "// | |  | | (_| | | | | (_| | (_) |  __/ |")
+    call append(12, "// |_|  |_|\\__,_|_| |_|\\__, |\\___/ \\___|_|")
+    call append(13, "//                     |___/")
+    call append(14,"// ================================================================")
+    call append(15,"*/")
+    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+
+" 更新最近修改时间和文件名
+function UpdateTitle()
+    normal m'
+    execute '\/\/ Last modified: /s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '\/\/ Filename:      /s@:.*$@\=":\t\t".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+
+" 判断前10行代码里面，是否有Last modified这个单词，
+" 如果没有的话，代表没有添加过作者信息，需要新添加；
+" 如果有的话，那么只需要更新即可
+function TitleDet()
+     let n=1
+     while n < 10
+      let line = getline(n)
+      if line =~ '^.*\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+      endif
+      let n = n + 1
+     endwhile
+     call AddTitle()
+endfunction

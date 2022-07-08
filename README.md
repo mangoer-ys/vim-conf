@@ -6,6 +6,7 @@
     状态栏
     Tab栏
     Tagbar
+    终端
     目录树
     快速注释
     文件查找，函数查找 
@@ -13,7 +14,15 @@
     代码补全，自动补全
     代码折叠
     代码格式化
-    <F8>一键编译
+    代码编译调试
+    Git支持
+    历史修改
+    快速移动
+    快速对齐
+    代码快速生成
+    多光标编辑
+    翻译
+    日历
     ...
 
 
@@ -76,11 +85,14 @@
 | :sp | 快速横向分屏 |
 | \\- | 快速横向分屏 |
 | ctrl + ww | 顺时针切换分屏 |
+| 空格键 | 顺时针切换分屏 |
 | ctrl + wl | 向右切换分屏 |
 | ctrl + wh | 向左切换分屏 |
 | ctrl + wj | 向上切换分屏 |
 | ctrl + wk | 向下切换分屏 |
 | ctrl + wo | 最大化当前分屏 |
+| \\i | 查看golang实现interface的struct |
+| \\r | 查看golang中的引用 |
 | \da | 文件头部加作者时间等注释 |
 | \dc | 自动为函数增加注释 |
 | \c | 增加注释 /* */ |
@@ -103,13 +115,20 @@
 | zr | 打开markdown当前的折叠 |
 | zm | 折叠markdown |
 | \<Enter\> \":"/./= | Visual Mode对齐 |
+| ctrl + n | 终端下进入normal模式 |
+| F2 | 打开终端 |
 | F3 | 查找文件 |
 | F4 | 文件头部加作者时间等注释 |
 | F5 | 刷新目录树 |
+| F6 | 修复代码 |
 | F7 | 窗口右侧显示文件结构 方法变量等 |
-| F8 | 执行当前目录下 `_prj/init.sh` 自定义脚本 |
+| F8 | 打开undotree窗口 |
 | F9 ctrl + ] | 函数跳转 |
 | F10 | 打开或关闭左侧目录树 |
+| ; | : |
+| Ctrl + c | 复制 |
+| Ctrl + v | 粘贴 |
+| Q | 关闭窗口 |
 
 #### 常用命令
 | 命令 | 说明 |
@@ -121,6 +140,17 @@
 | :map\|nmap\|vmap\|cmap\|xmap\|noremap\|nnoremap | 查看已绑定的快捷键 |
 | :Ack \<pattern\> | 关键字查找 |
 | :GoTests | golang生成单测函数 |
+| :GoTest | 运行单元测试 |
+| :GoTestFunc | 运行单个单元测试函数 |
+| :GoAddTags | 增加tag |
+| :GoRemoveTags | 删除tag |
+| :GoFillStruct | 填充struct |
+| :GoRename | 重命名 |
+| :copen | 打开quickfix窗口 |
+| :term | 打开终端窗口, 窗口内exit退出 |
+| :below term | 在当前窗口下方打开终端 |
+| :vert term | 竖直方向打开终端 |
+| :Calendar | 查看日历 |
 
 
 #### 目录树操作

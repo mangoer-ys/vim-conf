@@ -1,0 +1,241 @@
+set nocompatible
+
+" 开启语法高亮
+syntax enable
+
+" --- configure Vundle ---
+" 检测文件类型
+filetype on
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim/
+
+call vundle#rc()
+
+let VIMIDE_DIR=expand("<sfile>:p:h")
+
+if filereadable(expand(VIMIDE_DIR.'/.vimrc.bundles'))
+    exec 'source '.VIMIDE_DIR.'/.vimrc.bundles'
+endif
+
+if filereadable(expand(VIMIDE_DIR."/.vimrc.keymap"))
+    exec 'source '.VIMIDE_DIR.'/.vimrc.keymap'
+endif
+
+" 打开文件检测 插件 缩进
+filetype plugin indent on
+" --- END configure Vundle ---
+
+" 退格键可用
+set backspace=indent,eol,start
+
+" 缩进
+set smartindent
+" Indent at the same level of the previous line
+set autoindent
+
+" 显示当前的行号列号
+set ruler
+" 显示行号
+set number
+" 在状态栏显示正在输入的命令
+set showcmd
+
+" 设置Tab键的宽度        [等同的空格个数]
+set tabstop=4
+" 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set expandtab
+" 每一次缩进对应的空格数
+set shiftwidth=4
+" set foldcolumn=2
+"
+" 退格键一次删掉 4 个空格
+set smarttab
+
+" Highlight search terms
+set hlsearch
+" Show the next match while entering a search
+set incsearch
+
+" 括号配对情况, 跳转并高亮一下匹配的括号
+set showmatch
+
+" 代码折叠 用 za 命令折叠或展开
+" set foldmethod=indent
+" set foldmethod=marker
+" 默认展开
+set nofoldenable
+" 有 6 种方法来选定折叠：
+" 1    manual          手工定义折叠
+" 2    indent           更多的缩进表示更高级别的折叠
+" 3    expr              用表达式来定义折叠
+" 4    syntax           用语法高亮来定义折叠
+" 5    diff                对没有更改的文本进行折叠
+" 6    marker           对文中的标志折叠
+
+" Maximum history record
+set history=10000
+
+" 00x增减数字时使用十进制
+set nrformats=
+
+" 增强模式中的命令行自动完成操作
+set wildmenu
+set wildmode=full
+" set wildmode=longest,list
+
+" Automatically read a file changed outside of vim
+set autoread
+
+" Automatically write a file when leaving a modified buffer
+" set autowrite
+
+" 智能大小写
+" 搜索时忽略大小写
+set ignorecase
+" 有一个或以上大写字母时仍大小写敏感
+set smartcase
+
+" cscope
+" Avoiding duplicate cscope database error within VIM
+set nocscopeverbose
+" set cscopetag
+
+" 永远屏蔽补全Scrtach Preview窗口
+set completeopt-=preview
+" 自动补全配置
+" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+" set completeopt=longest,menu
+
+" 窗口刷新时间 单位：毫秒
+set updatetime=100
+
+" 设置 退出 vim 后，内容显示在终端屏幕, 可以用于查看和复制
+" set t_ti= t_te=
+
+if has("vms")
+  set nobackup
+else
+  set backup
+endif
+
+" 取消备份
+set nobackup
+set noswapfile
+
+" 鼠标暂不启用, 键盘党....
+set mouse-=a
+" 启用鼠标
+" set mouse=a
+" Hide the mouse cursor while typing
+" set mousehide
+
+set cmdheight=1
+
+" 突出显示当前行
+set cursorline
+" 突出显示当前列
+set cursorcolumn
+
+set pastetoggle=<F11>
+
+" 去掉输入错误的提示声音
+set novisualbell
+set noerrorbells
+set t_vb=
+set tm=500
+
+" 备份文件位置
+if !filereadable(expand('~/backup/vim/'))
+    silent execute ":!mkdir -p ~/backup/vim"
+endif
+set backupdir=~/backup/vim
+set backupext=.bak
+
+" php和html文件的补全规则
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+autocmd FileType vim set omnifunc=syntaxcomplete#Complete
+
+" 去除 PHP 尖括号「<:>」的默认匹配与自动补全
+autocmd FileType php set matchpairs-=<:>
+
+" 使 php 和 js 的单词带 $ 符号，从而修复 Debug 问题
+autocmd FileType php,javascript setlocal iskeyword+=$
+autocmd FileType php setlocal iskeyword-=-
+autocmd FileType php setlocal foldmethod=manual
+autocmd FileType php nnoremap ++  :DisablePHPFolds<CR>
+autocmd FileType php nnoremap --  :EnableFastPHPFolds<CR>
+
+" 在{与}之间换行，能自动插入新行
+autocmd FileType php,javascript inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+autocmd FileType php inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+
+" vim-jsbeautify
+" unmap! <c-f>
+autocmd FileType javascript noremap <buffer> <Leader>ff  : call JsBeautify()<CR>
+autocmd FileType html noremap <buffer> <Leader>ff        : call HtmlBeautify()<CR>
+autocmd FileType css noremap <buffer> <Leader>ff         : call CSSBeautify()<CR>
+autocmd FileType php noremap <buffer> <Leader>ff         : call VjPhpBeautify()<CR>
+autocmd FileType javascript vnoremap <buffer> <Leader>ff : call RangeJsBeautify()<CR>
+autocmd FileType html vnoremap <buffer> <Leader>ff       : call RangeHtmlBeautify()<CR>
+autocmd FileType css vnoremap <buffer> <Leader>ff        : call RangeCSSBeautify()<CR>
+
+" 切换php/html/javascript文件类型以配合缩进和语法补全
+autocmd FileType html,php,javascript map <buffer> <Leader>ft :call VjFileTypeToggle()<CR>
+
+" golang
+autocmd FileType go nnoremap <buffer> <C-]> :GoDef <CR>
+autocmd FileType go nmap <Leader>i <Plug>(go-implements)
+autocmd FileType go nmap <Leader>r <Plug>(go-rename)
+autocmd FileType go nmap <Leader>r :GoReferrers<CR>
+" autocmd FileType go inoremap <buffer> . .<C-x><C-o>
+
+autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,*_ngx.conf set filetype=nginx | syntax on
+" html 默认折叠为2级
+autocmd BufRead,BufNewFile FileType html setlocal foldlevel=2
+
+" 保存文件时自动删除行尾空格或 Tab
+autocmd BufWritePre * :%s/\s\+$//e
+" 保存文件时自动删除末尾空行
+autocmd BufWritePre * :%s/^$\n\+\%$//ge
+
+" 设置可以高亮的关键字
+if has("autocmd")
+  " Highlight TODO, FIXME, NOTE, etc.
+  if v:version > 701
+    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
+    autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
+  endif
+endif
+
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+if has("autocmd")
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" start vim with nerd tree open auto
+" autocmd VimEnter * NERDTree
+
+" 自动判断编码时，依次尝试以下编码
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+scriptencoding utf-8
+
+set errorformat=%m\ in\ %f\ on\ line\ %l
+
+" 配色Vim为256
+" set t_Co=256
+set bg=dark
+colorscheme default
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif

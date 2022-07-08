@@ -11,9 +11,9 @@ function backup() {
         mv ~/.vimrc ~/.vimrc_backup_$t
     fi
 
-    if [ -f ~/.vimrc.local ]
+    if [ -f ~/.vimrc.common ]
     then
-        mv ~/.vimrc.local ~/.vimrc.local_backup_$t
+        mv ~/.vimrc.common ~/.vimrc.common_backup_$t
     fi
 
     if [ -f ~/.vimrc.bundles ]
@@ -21,9 +21,9 @@ function backup() {
         mv ~/.vimrc.bundles ~/.vimrc.bundles_backup_$t
     fi
 
-    if [ -f ~/.vimrc.team ]
+    if [ -f ~/.vimrc.keymap ]
     then
-        mv ~/.vimrc.team ~/.vimrc.team_backup_$t
+        mv ~/.vimrc.keymap ~/.vimrc.keymap_backup_$t
     fi
 
     if [ -d ~/.vim ]
@@ -34,8 +34,8 @@ function backup() {
 
 function install_plugin() {
     cp .vimrc ~/.vimrc
-    cp .vimrc.local ~/.vimrc.local
-    cp .vimrc.team ~/.vimrc.team
+    cp .vimrc.common ~/.vimrc.common
+    cp .vimrc.keymap ~/.vimrc.keymap
     cp .vimrc.bundles ~/.vimrc.bundles
 
     mkdir -p ~/.vim/bundle
