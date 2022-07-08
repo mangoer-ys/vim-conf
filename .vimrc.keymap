@@ -145,6 +145,10 @@ map <Leader><Leader>l <Plug>(easymotion-lineforward)
 map <Leader><Leader>. <Plug>(easymotion-repeat)
 map <Leader><Leader>2 <Plug>(easymotion-s2)
 
+" ale
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
+
 " Visual Mode 快捷键
 map vi' <Esc>?'<CR>lv/'<CR>h
 map vi" <Esc>?"<CR>lv/"<CR>h
